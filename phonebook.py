@@ -22,7 +22,7 @@ def open_file_for_read():
     return phonebook_data
 
 def show_records(records_in_page=10):
-    """Showing current records from db to console
+    """Showing current records from db to console with pagination
     """
     data = open_file_for_read()
     i = 0
@@ -38,6 +38,21 @@ def show_records(records_in_page=10):
             choice = input("Введите номер действия\n")
             if choice != '1':
                 return menu()
+            
+def create_record():
+    """Create a record in db
+    """
+    pass
+
+def change_record()
+    """Changing existing record in db
+    """
+    pass
+    
+def find_record():
+    """Search for a record in db
+    """
+    pass
             
 
 def menu():
@@ -62,11 +77,11 @@ def menu():
     if choice == '1':
         return show_records()
     elif choice == '2':
-        return
+        return create_record()
     elif choice == '3':
-        return
+        return change_record()
     elif choice == '4':
-        return
+        return find_record()
     elif choice == '5':
         return
     else:
