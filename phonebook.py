@@ -7,7 +7,7 @@ def reading_file():
         list: recorded data
     """
     
-    with open('phonebook.csv',"a+", encoding="utf-8") as f:
+    with open('./phonebook.csv',"a+", encoding="utf-8") as f:
         f.seek(0)
         phonebook_data = []
         for record in f:
@@ -23,9 +23,9 @@ def reading_file():
     return phonebook_data
 
 def save_record(data, last_name, first_name, middle_name, company, company_phone, mobile_phone):
-    """Save a record to file
+    """Save a record from memory to file
     """
-    with open('phonebook.csv', "a+", encoding="utf-8") as f:
+    with open('./phonebook.csv', "a+", encoding="utf-8") as f:
         if len(data) == 0:
             number = 1
             f.seek(0)
@@ -36,7 +36,7 @@ def save_record(data, last_name, first_name, middle_name, company, company_phone
 def update_record(data):
     """Update record in file, actually updating all file
     """
-    with open('phonebook.csv', "w", encoding="utf-8") as f:
+    with open('./phonebook.csv', "w", encoding="utf-8") as f:
         updated_data = ""
         for record in data:
             updated_data += (f"{record['id']},{record['last_name']},{record['first_name']},{record['middle_name']}," 
@@ -84,7 +84,7 @@ def show_records(data, records_in_page):
     return menu()
 
 def create_record(data, last_name=None, first_name=None, middle_name=None, company=None, company_phone=None, mobile_phone=None):
-    """Create a record in db
+    """Creating a record in memory
     """   
     if last_name is None:
         last_name = input("Введите фамилию:\n")
@@ -134,7 +134,7 @@ def create_record(data, last_name=None, first_name=None, middle_name=None, compa
         return menu()
     
 def change_record(data):
-    """Changing existing record in db
+    """Changing existing record
     """
     print("""Для внесения изменений в телефонный справочник вам необходим номер записи в БД""")
     record_id = input("Введите номер записи:\n")
